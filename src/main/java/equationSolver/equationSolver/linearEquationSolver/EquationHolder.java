@@ -4,9 +4,26 @@ import java.util.ArrayList;
 
 public class EquationHolder {
 	private String equation;
+	private String yIntercept;
+	private String slope;
 	private ArrayList<String> leftSide;
 	private ArrayList<String> rightSide;
 	
+	public String getyIntercept() {
+		return yIntercept;
+	}
+
+	public void setyIntercept(String yIntercept) {
+		this.yIntercept = yIntercept;
+	}
+
+	public String getSlope() {
+		return slope;
+	}
+
+	public void setSlope(String slope) {
+		this.slope = slope;
+	}
 	public String getEquation() {
 		return equation;
 	}

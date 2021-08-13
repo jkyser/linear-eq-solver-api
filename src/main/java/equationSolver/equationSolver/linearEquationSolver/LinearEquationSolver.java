@@ -18,12 +18,24 @@ public class LinearEquationSolver {
 		EquationUtils.reduceConstants(equation);
 		EquationUtils.isolateYonLeftSide(equation);
 		EquationUtils.rebuildEquation(equation);
+		String yInt = EquationUtils.getyIntercept(equation);
+		this.equation.setyIntercept(yInt);
+		String slope = EquationUtils.getSlope(equation);
+		this.equation.setSlope(slope);
 	}
 	
 	/*
 	 * Getters and setters
 	 */
-	public String getEquation() {
-		return equation.getEquation();
+	public EquationHolder getEquation() {
+		return this.equation;
+	}
+	
+	public String getyIntercept() {
+		return this.equation.getyIntercept();
+	}
+	
+	public String getSlope() {
+		return this.equation.getSlope();
 	}
 }

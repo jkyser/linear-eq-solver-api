@@ -27,7 +27,7 @@ public class LinearEquationSolverHandler {
 			method = RequestMethod.POST,
 			consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public String solveLinearEquation(@RequestBody EquationHolder equation) {
+	public EquationHolder solveLinearEquation(@RequestBody EquationHolder equation) {
 		System.out.println("First print in handler: " + equation);
 		
 		LinearEquationSolver solver = 
@@ -35,8 +35,10 @@ public class LinearEquationSolverHandler {
 		solver.solve();
 		
 		System.out.println("Second print in handler: " + solver.getEquation());
+		System.out.println("y-intercept: " + solver.getyIntercept());
+		System.out.println("slope: " + solver.getSlope());
 		
-		return "";
+		return solver.getEquation();
 	}
 	
 }

@@ -351,8 +351,8 @@ public class EquationUtils {
 	}
 	
 	/**********************************************************
-	 * Public method to isolate the y variable on the left
-	 * side of the equation
+	 * Public method to rebuild the equation into the proper
+	 * y=mx+b format
 	 * 
 	 * 
 	 * 
@@ -379,5 +379,55 @@ public class EquationUtils {
 		}
 		
 		equation.setEquation(equation.getLeftSide().get(0) + "=" + rightSide);
+	}
+	
+	/**********************************************************
+	 * Public methods to get the slope and y-intercept
+	 * of the y=mx+b equation
+	 * 
+	 * 
+	 * 
+	 * 
+	 **********************************************************/
+	
+	/*
+	 * Calculates the y-intercept
+	 */
+	public static String getyIntercept(EquationHolder equation) {
+		ArrayList<String> rightSide = equation.getRightSide();
+		String yIntercept = "0";
+		
+		for (String component: rightSide) {
+			if (!component.contains("x")) {
+				yIntercept = component;
+			}
+		}
+		
+		return yIntercept;
+	}
+	
+	/*
+	 * Calculates slope
+	 */
+	public static String getSlope(EquationHolder equation) {
+		ArrayList<String> rightSide = equation.getRightSide();
+		String slope = "1";
+		
+		for (String component: rightSide) {
+			if (component.contains("x") && component.length() > 1) {
+				for (int i = 0; i < component.length(); i++) {
+					char c = component.charAt(i);
+					if (c == 'x') {
+						break;
+					} else if (c == '-') {
+						slope = "-";
+					} else {
+						slope += c;
+					}
+				}
+			}
+		}
+		
+		return slope;
 	}
 }
