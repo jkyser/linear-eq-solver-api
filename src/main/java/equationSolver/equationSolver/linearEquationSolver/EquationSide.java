@@ -2,7 +2,6 @@ package equationSolver.equationSolver.linearEquationSolver;
 
 import java.util.ArrayList;
 
-import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -35,13 +34,21 @@ public class EquationSide {
 		
 	}
 	
-	/*
-	 * Returns a prototype bean instance of a component
-	 */
-	@Lookup
-	private EquationComponent getComponent() {
-		return null;
+	/******************************************************
+	 * Getters and Setters
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 ******************************************************/
+
+	public ArrayList<EquationComponent> getComponents() {
+		return components;
 	}
-	
+
+	public void setComponents(ArrayList<EquationComponent> components) {
+		this.components = components;
+	}
 	
 }

@@ -1,10 +1,5 @@
 package equationSolver.equationSolver.linearEquationSolver;
 
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-@Component
-@Scope("prototype")
 public class EquationComponent {
 	
 	/**********************************
@@ -18,7 +13,9 @@ public class EquationComponent {
 	private String variable = null;
 	private int componentConst;
 	
-	public EquationComponent() {}
+	public EquationComponent(String component) {
+		
+	}
 
 	/**********************************
 	 * Getters and Setters
