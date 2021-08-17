@@ -2,53 +2,24 @@ package equationSolver.equationSolver.linearEquationSolver;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
 public class EquationHolder {
+	
+	/*
+	 * Member variables
+	 */
 	private String equation;
-	private String yIntercept;
-	private String slope;
-	private ArrayList<String> leftSide;
-	private ArrayList<String> rightSide;
+	@Autowired
+	private EquationSide leftSide;
+	@Autowired
+	private EquationSide rightSide;
 	
-	public String getyIntercept() {
-		return yIntercept;
-	}
-
-	public void setyIntercept(String yIntercept) {
-		this.yIntercept = yIntercept;
-	}
-
-	public String getSlope() {
-		return slope;
-	}
-
-	public void setSlope(String slope) {
-		this.slope = slope;
-	}
-	public String getEquation() {
-		return equation;
-	}
+	public EquationHolder() {}
 	
-	public void setEquation(String equation) {
-		this.equation = equation;
-	}
-	
-	public ArrayList<String> getLeftSide() {
-		return leftSide;
-	}
-
-	public void setLeftSide(ArrayList<String> leftSide) {
-		this.leftSide = leftSide;
-	}
-
-	public ArrayList<String> getRightSide() {
-		return rightSide;
-	}
-
-	public void setRightSide(ArrayList<String> rightSide) {
-		this.rightSide = rightSide;
-	}
-
-	public String toString() {
+	public String getRecvEquation() {
 		return this.equation;
 	}
 }
