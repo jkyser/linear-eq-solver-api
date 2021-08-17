@@ -20,9 +20,15 @@ class EquationSolverApplicationTests {
 	
 	@Test
 	@DisplayName("'=' at index 0, equation split should return null")
-	void testInvalidEquationSplit() {
+	void testInvalidEqualZeroIndexEquationSplit() {
 		String incorrectEq = "=-4y+1-5+46+20";
 		assertNull(EquationUtils.splitEquation(incorrectEq));
 	}
 	
+	@Test
+	@DisplayName("'=' at last index of equation, equation split should return null")
+	void testInvalidEqualLastIndexEquationSplit() {
+		String incorrectEq = "x+42=";
+		assertNull(EquationUtils.splitEquation(incorrectEq));
+	}
 }

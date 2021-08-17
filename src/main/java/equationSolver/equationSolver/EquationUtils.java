@@ -29,6 +29,11 @@ public class EquationUtils {
 			}
 		}
 		
+		// check for incorrect formatting here
+		if (equalIndex == 0) {
+			return null;
+		}
+		
 		eqArray[0] = equation.substring(0, equalIndex);
 		eqArray[1] = equation.substring(equalIndex + 1);
 		return eqArray;
