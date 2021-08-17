@@ -4,18 +4,12 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-import java.util.ArrayList;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.ObjectFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import equationSolver.equationSolver.linearEquationSolver.EquationComponent;
-import equationSolver.equationSolver.linearEquationSolver.EquationSide;
 
 @SpringBootTest
 class EquationSolverApplicationTests {
@@ -79,10 +73,18 @@ class EquationSolverApplicationTests {
 		
 		@Test
 		@DisplayName("Test Equationcomponent constructor parses number - no variable")
-		void testEquationComponentConstructor() {
+		void testEquationComponentConstructorInt() {
 			String component = "4";
 			EquationComponent testComponent = new EquationComponent(component);
-			assertEquals(4, testComponent.getComponentConst());
+			assertEquals(4, testComponent.getConstantInt());
+		}
+		
+		@Test
+		@DisplayName("Test EquationComponent constructor parses double - no variable")
+		void testEquationComponentConstructorDouble() {
+			String component = "4.2";
+			EquationComponent testComponent = new EquationComponent(component);
+			assertEquals(4.2, testComponent.getConstantDouble());
 		}
 	
 	}
