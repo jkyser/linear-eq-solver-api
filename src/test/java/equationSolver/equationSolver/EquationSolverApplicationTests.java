@@ -103,11 +103,13 @@ class EquationSolverApplicationTests {
 			assertEquals(-4.2, testComponent.getConstantDouble());
 		}
 		
-//		@Test
-//		@DisplayName("Test EquationComponent constructor parses variable and int")
-//		void testEquationComponentConstructorVariableInt() {
-//			String component = "4y"
-//		}
+		@Test
+		@DisplayName("Test EquationComponent constructor parses variable")
+		void testEquationComponentConstructorVariableInt() {
+			String component = "4y";
+			EquationComponent testComponent = new EquationComponent(component);
+			assertEquals("y", testComponent.getVariable());
+		}
 	
 	}
 	
