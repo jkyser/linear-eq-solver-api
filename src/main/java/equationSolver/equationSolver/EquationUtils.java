@@ -30,7 +30,7 @@ public class EquationUtils {
 		}
 		
 		// check for incorrect formatting here
-		if (equalIndex == 0) {
+		if (equalIndex == 0 || equalIndex == equation.length() - 1) {
 			return null;
 		}
 		

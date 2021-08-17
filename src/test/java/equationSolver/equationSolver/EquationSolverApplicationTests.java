@@ -31,4 +31,11 @@ class EquationSolverApplicationTests {
 		String incorrectEq = "x+42=";
 		assertNull(EquationUtils.splitEquation(incorrectEq));
 	}
+	
+	@Test
+	@DisplayName("Test that empty string returns null for equation split")
+	void testEmptyStringEquationSplit() {
+		String emptyEq = "";
+		assertNull(EquationUtils.splitEquation(emptyEq));
+	}
 }
