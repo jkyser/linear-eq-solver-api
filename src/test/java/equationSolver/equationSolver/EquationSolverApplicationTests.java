@@ -27,6 +27,10 @@ class EquationSolverApplicationTests {
 	 * 
 	 * 
 	 * 
+	 * 
+	 * 
+	 * 
+	 * 
 	 ***************************************/
 	
 	@Test
@@ -58,6 +62,18 @@ class EquationSolverApplicationTests {
 		assertNull(EquationUtils.splitEquation(emptyEq));
 	}
 	
+	/****************************************************
+	 * Tests for EquationComponent Class
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 *
+	 ****************************************************/
 	@Nested
 	class EquationComponentTest {
 		

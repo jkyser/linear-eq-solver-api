@@ -14,7 +14,7 @@ public class EquationComponent {
 	private int componentConst;
 	
 	public EquationComponent(String component) {
-		
+		this.componentConst = Integer.valueOf(component);
 	}
 
 	/**********************************
