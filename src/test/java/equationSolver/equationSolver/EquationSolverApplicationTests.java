@@ -86,6 +86,28 @@ class EquationSolverApplicationTests {
 			EquationComponent testComponent = new EquationComponent(component);
 			assertEquals(4.2, testComponent.getConstantDouble());
 		}
+
+		@Test
+		@DisplayName("Test EquationComponent constructor parses negative int - no variable")
+		void testEquationComponentConstructorNegInt() {
+			String component = "-4";
+			EquationComponent testComponent = new EquationComponent(component);
+			assertEquals(-4, testComponent.getConstantInt());
+		}
+		
+		@Test
+		@DisplayName("Test EquationComponent constructor parses negative double - no variable")
+		void testEquationComponentConstructorNegDouble() {
+			String component = "-4.2";
+			EquationComponent testComponent = new EquationComponent(component);
+			assertEquals(-4.2, testComponent.getConstantDouble());
+		}
+		
+//		@Test
+//		@DisplayName("Test EquationComponent constructor parses variable and int")
+//		void testEquationComponentConstructorVariableInt() {
+//			String component = "4y"
+//		}
 	
 	}
 	
