@@ -33,7 +33,7 @@ public class EquationSolverHandler {
 	@ResponseBody
 	public EquationHolder solveLinearEquation(@RequestBody EquationHolder equation) {
 		
-		System.out.println(equation.getRecvEquation());
+		System.out.println(equation.getEquation());
 		
 		return new EquationHolder();
 	}

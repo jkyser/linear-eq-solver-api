@@ -7,13 +7,41 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 public class EquationComponent {
 	
-	/*
+	/**********************************
 	 * Member variables
-	 */
-	private boolean containsVariable;
-	private String variable;
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 **********************************/
+	private String variable = null;
 	private int componentConst;
 	
 	public EquationComponent() {}
+
+	/**********************************
+	 * Getters and Setters
+	 * 
+	 * 
+	 * 
+	 * 
+	 **********************************/
+
+	public String getVariable() {
+		return variable;
+	}
+
+	public void setVariable(String variable) {
+		this.variable = variable;
+	}
+
+	public int getComponentConst() {
+		return componentConst;
+	}
+
+	public void setComponentConst(int componentConst) {
+		this.componentConst = componentConst;
+	}
 	
 }

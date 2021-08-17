@@ -17,6 +17,15 @@ public class EquationSide {
 	
 	public EquationSide() {}
 	
+	/*****************************************************
+	 * Methods for splitting and processing the component
+	 * beans
+	 * 
+	 * 
+	 * 
+	 * 
+	 *****************************************************/
+	
 	/*
 	 * Method to split the given side of the equation into its
 	 * constituent components by storing all values into the 
@@ -33,5 +42,6 @@ public class EquationSide {
 	private EquationComponent getComponent() {
 		return null;
 	}
+	
 	
 }
