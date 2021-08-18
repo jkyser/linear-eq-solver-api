@@ -26,8 +26,27 @@ public class EquationComponent {
 	 ***********************************/
 	
 	public EquationComponent(String component) {
-		// check for int or double to initialize the nested
-		// constant class with the correct constant
+		// assess if there is a variable present in the component
+		if (component.matches("[0-9]+")) {
+			// check for int or double to initialize the member variable
+			checkAndSetConstant(component);
+		} else {
+			parseConstVariable(component);
+		}
+	}
+
+	/**********************************
+	 * Helper methods
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 **********************************/
+	/*
+	 * Sets the constant value depending on if the input was an int or double
+	 */
+	private void checkAndSetConstant(String component) {
 		try {
 			this.constantInt = Integer.parseInt(component);
 			this.isInt = true;
@@ -36,7 +55,23 @@ public class EquationComponent {
 			this.isDouble = true;
 		}
 	}
-
+	
+	/*
+	 * Parses a constructor input that contains a variable and a constant
+	 */
+	private void parseConstVariable(String component) {
+		for (int i = 0; i < component.length(); i++) {
+			char c = component.charAt(i);
+			if (Character.isLetter(c)) {
+				this.variable = Character.toString(c);
+				component = component.substring(0, i);
+				break;
+			}
+		}
+		
+		checkAndSetConstant(component);
+	}
+	
 	/**********************************
 	 * Getters and Setters
 	 * 
