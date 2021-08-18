@@ -154,38 +154,24 @@ class EquationSolverApplicationTests {
 	}
 	
 	
-//	@Nested
-//	class splitIntoComponentsTest {
-//	
-//		/********************************************
-//		 * EquationSide.splitIntoComponents() Tests
-//		 * 
-//		 * 
-//		 * 
-//		 * 
-//		 * 
-//		 ********************************************/
-//		
-//		@Autowired
-//		private ObjectFactory<EquationSide> sideFactory;
-//		EquationSide side;
-//		
-//		@BeforeEach
-//		void init() {
-//			this.side = sideFactory.getObject();
-//		}
-//		
-//		@Test
-//		@DisplayName("Test for correct splitting of components")
-//		void testSplitIntoComponents() {
-//			String equationSide = "4x+50-5y";
-//			ArrayList<EquationComponent> expectedList = new ArrayList<>();
-//			EquationComponent toAdd = new EquationComponent
-//			
-//			side.splitIntoComponents(equationSide);
-//			assertArrayEquals(side.getComponents(),)
-//		}
-//	
-//	}
+	@Nested
+	class splitIntoComponentsTest {
+	
+		/********************************************
+		 * EquationSide.splitIntoComponents() Tests
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 ********************************************/
+		
+		@Test
+		@DisplayName("Test for correct splitting of components")
+		void testSplitIntoComponents() {
+			
+		}
+	
+	}
 	
 }
