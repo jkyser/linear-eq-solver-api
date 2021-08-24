@@ -82,6 +82,89 @@ public class EquationComponent {
 		}
 	}
 	
+	
+	/***************************************
+	 * 
+	 * Addition Methods
+	 * 
+	 * 
+	 * 
+	 * 
+	 ***************************************/
+	/*
+	 * Adds the given EquationComponent to this component
+	 */
+	public void add(EquationComponent toAdd) {
+		if (toAdd.isInt()) {
+			if (this.isInt) {
+				int newInt = this.constantInt + toAdd.getConstantInt();
+				this.setConstantInt(newInt);
+			} else {
+				double newDouble = this.constantDouble + toAdd.getConstantInt();
+				this.setConstantDouble(newDouble);
+			}
+		} else {
+			if (this.isDouble) {
+				double newDouble = this.constantDouble + toAdd.getConstantDouble();
+				this.setConstantDouble(newDouble);
+			} else {
+				double newDouble = this.constantInt + toAdd.getConstantDouble();
+				this.isInt = false;
+				this.isDouble = true;
+				this.constantDouble = newDouble;
+			}
+		}
+	}
+	
+	
+	/***************************************
+	 * 
+	 * Subtraction Methods
+	 * 
+	 * 
+	 * 
+	 * 
+	 ***************************************/
+	/*
+	 * Subtracts the given EquationComponent to this component
+	 */
+	public void subtract(EquationComponent toSubtract) {
+		
+	}
+	
+	
+	/***************************************
+	 * 
+	 * Multiplication Methods
+	 * 
+	 * 
+	 * 
+	 * 
+	 ***************************************/
+	/*
+	 * Multiplies the given EquationComponent to this component
+	 */
+	public void multiply(EquationComponent toMultiply) {
+		
+	}
+	
+	
+	/***************************************
+	 * 
+	 * Division Methods
+	 * 
+	 * 
+	 * 
+	 * 
+	 ***************************************/
+	/*
+	 * Divides this component by the given EquationComponent
+	 */
+	public void divide(EquationComponent dividend) {
+		
+	}
+	
+	
 	/***************************************
 	 * Equals method for comparing Equation
 	 * Component objects

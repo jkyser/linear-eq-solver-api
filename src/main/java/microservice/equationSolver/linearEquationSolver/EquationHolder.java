@@ -36,6 +36,8 @@ public class EquationHolder {
 	 */
 	public void solveYMXBform() {
 		String[] splitEq = EquationUtils.splitEquation(this.equation);
+		leftSide.splitIntoComponents(splitEq[0]);
+		rightSide.splitIntoComponents(splitEq[1]);
 	}
 	
 	/******************************************

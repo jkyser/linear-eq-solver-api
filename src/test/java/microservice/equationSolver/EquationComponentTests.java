@@ -1,6 +1,9 @@
 package microservice.equationSolver;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,7 +26,13 @@ import microservice.equationSolver.linearEquationSolver.EquationComponent;
 
 @SpringBootTest
 public class EquationComponentTests {
-	
+	/*********************************************
+	 * 
+	 * Constructor tests
+	 * 
+	 * 
+	 * 
+	 *********************************************/
 	@Test
 	@DisplayName("Test Equationcomponent constructor parses number - no variable")
 	void testEquationComponentConstructorInt() {
@@ -150,5 +159,129 @@ public class EquationComponentTests {
 		String component = "+20.2";
 		EquationComponent testComponent = new EquationComponent(component);
 		assertEquals(20.2, testComponent.getConstantDouble());
+	}
+	
+	
+	/****************************************
+	 * 
+	 * Addition tests
+	 * 
+	 * 
+	 * 
+	 * 
+	 ****************************************/
+	@Test
+	@DisplayName("Test positive integer addition")
+	void testEquationComponentPositiveIntAdd() {
+		EquationComponent original = new EquationComponent("4");
+		EquationComponent toAdd = new EquationComponent("2");
+		original.add(toAdd);
+		
+		EquationComponent expected = new EquationComponent("6");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test negative integer addition")
+	void testEquationComponentNegativeIntAdd() {
+		EquationComponent original = new EquationComponent("4");
+		EquationComponent toAdd = new EquationComponent("-2");
+		original.add(toAdd);
+		
+		EquationComponent expected = new EquationComponent("2");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test positive integer addition to double")
+	void testEquationComponentPositiveIntAddToDouble() {
+		EquationComponent original = new EquationComponent("4.0");
+		EquationComponent toAdd = new EquationComponent("2");
+		original.add(toAdd);
+		
+		EquationComponent expected = new EquationComponent("6.0");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test negative integer addition to double")
+	void testEquationComponentNegativeIntAddToDouble() {
+		EquationComponent original = new EquationComponent("4.0");
+		EquationComponent toAdd = new EquationComponent("-2");
+		original.add(toAdd);
+		
+		EquationComponent expected = new EquationComponent("2.0");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test positive double addition to int")
+	void testEquationComponentPositiveDoubleAddToInt() {
+		EquationComponent original = new EquationComponent("4");
+		EquationComponent toAdd = new EquationComponent("2.0");
+		original.add(toAdd);
+		
+		EquationComponent expected = new EquationComponent("6.0");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test negative double addition to int")
+	void testEquationComponentNegativeDoubleAddToInt() {
+		EquationComponent original = new EquationComponent("4");
+		EquationComponent toAdd = new EquationComponent("-2.0");
+		original.add(toAdd);
+		
+		EquationComponent expected = new EquationComponent("2.0");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	/****************************************
+	 * 
+	 * Subtraction tests
+	 * 
+	 * 
+	 * 
+	 * 
+	 ****************************************/
+	
+	/****************************************
+	 * 
+	 * Multiplication tests
+	 * 
+	 * 
+	 * 
+	 * 
+	 ****************************************/
+	
+	/****************************************
+	 * 
+	 * Division tests
+	 * 
+	 * 
+	 * 
+	 * 
+	 ****************************************/
+	
+	/******************************************
+	 * 
+	 * Helper methods
+	 * 
+	 * 
+	 * 
+	 * 
+	 ******************************************/
+	
+	/*
+	 * Compares the EquationComponent instances in two ArrayLists
+	 * and returns true if they are all equal and false otherwise
+	 */
+	private boolean compareEquationComponents(
+					EquationComponent one,
+					EquationComponent two) {			
+		if (!(one.equals(two))) {
+			return false;
+		}
+		return true;
 	}
 }
