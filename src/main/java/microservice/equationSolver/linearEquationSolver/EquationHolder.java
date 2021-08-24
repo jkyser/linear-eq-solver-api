@@ -1,10 +1,10 @@
-package equationSolver.equationSolver.linearEquationSolver;
+package microservice.equationSolver.linearEquationSolver;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
-import equationSolver.equationSolver.EquationUtils;
+import microservice.equationSolver.Utils.EquationUtils;
 
 @Component
 @RequestScope

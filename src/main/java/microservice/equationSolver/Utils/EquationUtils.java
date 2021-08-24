@@ -1,4 +1,4 @@
-package equationSolver.equationSolver;
+package microservice.equationSolver.Utils;
 
 
 /***************************************************************************

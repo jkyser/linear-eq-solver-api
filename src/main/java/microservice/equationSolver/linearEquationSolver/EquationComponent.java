@@ -1,4 +1,4 @@
-package equationSolver.equationSolver.linearEquationSolver;
+package microservice.equationSolver.linearEquationSolver;
 
 public class EquationComponent {
 	
