@@ -129,7 +129,25 @@ public class EquationComponent {
 	 * Subtracts the given EquationComponent to this component
 	 */
 	public void subtract(EquationComponent toSubtract) {
-		
+		if (toSubtract.isInt()) {
+			if (this.isInt) {
+				int newInt = this.constantInt - toSubtract.getConstantInt();
+				this.setConstantInt(newInt);
+			} else {
+				double newDouble = this.constantDouble - toSubtract.getConstantInt();
+				this.setConstantDouble(newDouble);
+			}
+		} else {
+			if (this.isDouble) {
+				double newDouble = this.constantDouble - toSubtract.getConstantDouble();
+				this.setConstantDouble(newDouble);
+			} else {
+				double newDouble = this.constantInt - toSubtract.getConstantDouble();
+				this.isInt = false;
+				this.isDouble = true;
+				this.constantDouble = newDouble;
+			}
+		}
 	}
 	
 	
@@ -145,7 +163,25 @@ public class EquationComponent {
 	 * Multiplies the given EquationComponent to this component
 	 */
 	public void multiply(EquationComponent toMultiply) {
-		
+		if (toMultiply.isInt()) {
+			if (this.isInt) {
+				int newInt = this.constantInt * toMultiply.getConstantInt();
+				this.setConstantInt(newInt);
+			} else {
+				double newDouble = this.constantDouble * toMultiply.getConstantInt();
+				this.setConstantDouble(newDouble);
+			}
+		} else {
+			if (this.isDouble) {
+				double newDouble = this.constantDouble * toMultiply.getConstantDouble();
+				this.setConstantDouble(newDouble);
+			} else {
+				double newDouble = this.constantInt * toMultiply.getConstantDouble();
+				this.isInt = false;
+				this.isDouble = true;
+				this.constantDouble = newDouble;
+			}
+		}
 	}
 	
 	

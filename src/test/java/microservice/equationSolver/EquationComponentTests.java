@@ -248,8 +248,8 @@ public class EquationComponentTests {
 	@DisplayName("Test positive integer subtraction")
 	void testEquationComponentPositiveIntSub() {
 		EquationComponent original = new EquationComponent("4");
-		EquationComponent toAdd = new EquationComponent("2");
-		original.subtract(toAdd);
+		EquationComponent toSubtract = new EquationComponent("2");
+		original.subtract(toSubtract);
 		
 		EquationComponent expected = new EquationComponent("2");
 		assertTrue(compareEquationComponents(original, expected));
@@ -259,8 +259,8 @@ public class EquationComponentTests {
 	@DisplayName("Test negative integer subtraction")
 	void testEquationComponentNegativeIntSub() {
 		EquationComponent original = new EquationComponent("4");
-		EquationComponent toAdd = new EquationComponent("-2");
-		original.subtract(toAdd);
+		EquationComponent toSubtract = new EquationComponent("-2");
+		original.subtract(toSubtract);
 		
 		EquationComponent expected = new EquationComponent("6");
 		assertTrue(compareEquationComponents(original, expected));
@@ -270,8 +270,8 @@ public class EquationComponentTests {
 	@DisplayName("Test positive integer subtraction to double")
 	void testEquationComponentPositiveIntSubToDouble() {
 		EquationComponent original = new EquationComponent("4.0");
-		EquationComponent toAdd = new EquationComponent("2");
-		original.subtract(toAdd);
+		EquationComponent toSubtract = new EquationComponent("2");
+		original.subtract(toSubtract);
 		
 		EquationComponent expected = new EquationComponent("2.0");
 		assertTrue(compareEquationComponents(original, expected));
@@ -281,8 +281,8 @@ public class EquationComponentTests {
 	@DisplayName("Test negative integer subtraction to double")
 	void testEquationComponentNegativeIntSubToDouble() {
 		EquationComponent original = new EquationComponent("4.0");
-		EquationComponent toAdd = new EquationComponent("-2");
-		original.subtract(toAdd);
+		EquationComponent toSubtract = new EquationComponent("-2");
+		original.subtract(toSubtract);
 		
 		EquationComponent expected = new EquationComponent("6.0");
 		assertTrue(compareEquationComponents(original, expected));
@@ -292,8 +292,8 @@ public class EquationComponentTests {
 	@DisplayName("Test positive double subtraction to int")
 	void testEquationComponentPositiveDoubleSubToInt() {
 		EquationComponent original = new EquationComponent("4");
-		EquationComponent toAdd = new EquationComponent("2.0");
-		original.subtract(toAdd);
+		EquationComponent toSubtract = new EquationComponent("2.0");
+		original.subtract(toSubtract);
 		
 		EquationComponent expected = new EquationComponent("2.0");
 		assertTrue(compareEquationComponents(original, expected));
@@ -303,13 +303,12 @@ public class EquationComponentTests {
 	@DisplayName("Test negative double subtraction to int")
 	void testEquationComponentNegativeDoubleSubToInt() {
 		EquationComponent original = new EquationComponent("4");
-		EquationComponent toAdd = new EquationComponent("-2.0");
-		original.subtract(toAdd);
+		EquationComponent toSubtract = new EquationComponent("-2.0");
+		original.subtract(toSubtract);
 		
 		EquationComponent expected = new EquationComponent("6.0");
 		assertTrue(compareEquationComponents(original, expected));
 	}
-	
 	
 	/****************************************
 	 * 
@@ -319,6 +318,71 @@ public class EquationComponentTests {
 	 * 
 	 * 
 	 ****************************************/
+	@Test
+	@DisplayName("Test positive integer multiplication")
+	void testEquationComponentPositiveIntMult() {
+		EquationComponent original = new EquationComponent("4");
+		EquationComponent toMult = new EquationComponent("2");
+		original.multiply(toMult);
+		
+		EquationComponent expected = new EquationComponent("8");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test negative integer multiplication")
+	void testEquationComponentNegativeIntMult() {
+		EquationComponent original = new EquationComponent("4");
+		EquationComponent toMult = new EquationComponent("-2");
+		original.multiply(toMult);
+		
+		EquationComponent expected = new EquationComponent("-8");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test positive integer multiplication to double")
+	void testEquationComponentPositiveIntMultToDouble() {
+		EquationComponent original = new EquationComponent("4.0");
+		EquationComponent toMult = new EquationComponent("2");
+		original.multiply(toMult);
+		
+		EquationComponent expected = new EquationComponent("8.0");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test negative integer multiplication to double")
+	void testEquationComponentNegativeIntMultToDouble() {
+		EquationComponent original = new EquationComponent("4.0");
+		EquationComponent toMult = new EquationComponent("-2");
+		original.multiply(toMult);
+		
+		EquationComponent expected = new EquationComponent("-8.0");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test positive double multiplication to int")
+	void testEquationComponentPositiveDoubleMultToInt() {
+		EquationComponent original = new EquationComponent("4");
+		EquationComponent toMult = new EquationComponent("2.0");
+		original.multiply(toMult);
+		
+		EquationComponent expected = new EquationComponent("8.0");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test negative double multiplication to int")
+	void testEquationComponentNegativeDoubleMultToInt() {
+		EquationComponent original = new EquationComponent("4");
+		EquationComponent toMult = new EquationComponent("-2.0");
+		original.multiply(toMult);
+		
+		EquationComponent expected = new EquationComponent("-8.0");
+		assertTrue(compareEquationComponents(original, expected));
+	}
 	
 	/****************************************
 	 * 
