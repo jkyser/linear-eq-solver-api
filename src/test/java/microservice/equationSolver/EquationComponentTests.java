@@ -3,8 +3,6 @@ package microservice.equationSolver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.ArrayList;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -392,6 +390,82 @@ public class EquationComponentTests {
 	 * 
 	 * 
 	 ****************************************/
+	@Test
+	@DisplayName("Test positive int divided by positive int (no decimal)")
+	void testEquationComponentIntIntDivisionNoDecimal() {
+		EquationComponent original = new EquationComponent("4");
+		EquationComponent dividend = new EquationComponent("2");
+		original.divide(dividend);
+		
+		EquationComponent expected = new EquationComponent("2");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test positive int divided by negative int (no decimal)")
+	void testEquationComponentIntNegIntDivisionNoDecimal() {
+		EquationComponent original = new EquationComponent("4");
+		EquationComponent dividend = new EquationComponent("-2");
+		original.divide(dividend);
+		
+		EquationComponent expected = new EquationComponent("-2");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test positive double divided by positive double")
+	void testEquationComponentDubDubDivisionNoDecimal() {
+		EquationComponent original = new EquationComponent("5.0");
+		EquationComponent dividend = new EquationComponent("2.0");
+		original.divide(dividend);
+		
+		EquationComponent expected = new EquationComponent("2.5");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test positive int divided by positive double")
+	void testEquationComponentIntDubDivision() {
+		EquationComponent original = new EquationComponent("5");
+		EquationComponent dividend = new EquationComponent("2.0");
+		original.divide(dividend);
+		
+		EquationComponent expected = new EquationComponent("2.5");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test positive double divided by positive int")
+	void testEquationComponentDubIntDivision() {
+		EquationComponent original = new EquationComponent("5.0");
+		EquationComponent dividend = new EquationComponent("2");
+		original.divide(dividend);
+		
+		EquationComponent expected = new EquationComponent("2.5");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test negative double divided by positive int")
+	void testEquationComponentNegDubIntDivision() {
+		EquationComponent original = new EquationComponent("-5.0");
+		EquationComponent dividend = new EquationComponent("2");
+		original.divide(dividend);
+		
+		EquationComponent expected = new EquationComponent("-2.5");
+		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	@Test
+	@DisplayName("Test positive int divided by positive double (no decimal)")
+	void testEquationComponentIntDubDivisionNoDecimal() {
+		EquationComponent original = new EquationComponent("6");
+		EquationComponent dividend = new EquationComponent("3.0");
+		original.divide(dividend);
+		
+		EquationComponent expected = new EquationComponent("2");
+		assertTrue(compareEquationComponents(original, expected));
+	}
 	
 	/******************************************
 	 * 

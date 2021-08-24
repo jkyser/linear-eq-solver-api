@@ -39,4 +39,7 @@ public class EquationUtils {
 		return eqArray;
 	}
 	
+	/*
+	 * 
+	 */
 }

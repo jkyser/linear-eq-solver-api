@@ -197,7 +197,33 @@ public class EquationComponent {
 	 * Divides this component by the given EquationComponent
 	 */
 	public void divide(EquationComponent dividend) {
-		
+		if (this.isInt) {
+			if (dividend.isDouble) {
+				double result = this.constantInt / dividend.getConstantDouble();
+				
+				if (result % 1 == 0) {
+					this.constantInt = (int) result;
+				} else {
+					this.isInt = false;
+					this.isDouble = true;
+					this.constantDouble = this.constantInt / dividend.getConstantDouble();
+				}
+			} else {
+				if (this.constantInt % dividend.getConstantInt() == 0) {
+					this.constantInt = this.constantInt / dividend.getConstantInt();
+				} else {
+					this.isInt = false;
+					this.isDouble = true;
+					this.constantDouble = this.constantInt / dividend.getConstantInt();
+				}
+			}
+		} else {
+			if (dividend.isDouble) {
+				this.constantDouble = this.constantDouble / dividend.getConstantDouble();
+			} else {
+				this.constantDouble = this.constantDouble / dividend.getConstantInt();
+			}
+		}
 	}
 	
 	
