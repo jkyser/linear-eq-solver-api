@@ -2,28 +2,31 @@ package microservice.equationSolver.linearEquationSolver;
 
 public class EquationComponent {
 	
-	/**********************************
+	/****************************************************************
 	 * Member variables
 	 * 
 	 * 
+	 * isInt and isDouble are booleans tracking if the component
+	 * contains an int or a double for equation formatting purposes
 	 * 
+	 * variable, constantInt, and constantDouble track the actual
+	 * values of the component
 	 * 
-	 * 
-	 **********************************/
+	 ****************************************************************/
 	private String variable = null;
 	private boolean isInt = false;
 	private int constantInt;
 	private boolean isDouble = false;
 	private double constantDouble;
 	
-	/***********************************
+	/***************************************************************
 	 * Constructor
 	 * 
+	 * Handles parsing of the given component
 	 * 
 	 * 
 	 * 
-	 * 
-	 ***********************************/
+	 ***************************************************************/
 	
 	public EquationComponent(String component) {
 		// assess if there is a variable present in the component
@@ -35,14 +38,14 @@ public class EquationComponent {
 		}
 	}
 
-	/**********************************
-	 * Helper methods
+	/****************************************************************
+	 * Helper methods for contructor parsing
 	 * 
 	 * 
 	 * 
 	 * 
 	 * 
-	 **********************************/
+	 ****************************************************************/
 	/*
 	 * Sets the constant value depending on if the input was an int or double
 	 */
@@ -83,14 +86,14 @@ public class EquationComponent {
 	}
 	
 	
-	/***************************************
+	/****************************************************************
 	 * 
 	 * Addition Methods
 	 * 
 	 * 
 	 * 
 	 * 
-	 ***************************************/
+	 ****************************************************************/
 	/*
 	 * Adds the given EquationComponent to this component
 	 */
@@ -117,14 +120,14 @@ public class EquationComponent {
 	}
 	
 	
-	/***************************************
+	/****************************************************************
 	 * 
 	 * Subtraction Methods
 	 * 
 	 * 
 	 * 
 	 * 
-	 ***************************************/
+	 ****************************************************************/
 	/*
 	 * Subtracts the given EquationComponent to this component
 	 */
@@ -151,14 +154,14 @@ public class EquationComponent {
 	}
 	
 	
-	/***************************************
+	/****************************************************************
 	 * 
 	 * Multiplication Methods
 	 * 
 	 * 
 	 * 
 	 * 
-	 ***************************************/
+	 ****************************************************************/
 	/*
 	 * Multiplies the given EquationComponent to this component
 	 */
@@ -185,14 +188,14 @@ public class EquationComponent {
 	}
 	
 	
-	/***************************************
+	/****************************************************************
 	 * 
 	 * Division Methods
 	 * 
 	 * 
 	 * 
 	 * 
-	 ***************************************/
+	 ****************************************************************/
 	/*
 	 * Divides this component by the given EquationComponent
 	 */
@@ -226,15 +229,33 @@ public class EquationComponent {
 		}
 	}
 	
+	/****************************************************************
+	 * Other methods
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 ****************************************************************/
+	/*
+	 * Changes the sign of the stored constant
+	 */
+	public void changeSign() {
+		if (this.isInt) {
+			this.constantInt *= -1;
+		} else {
+			this.constantDouble *= -1;
+		}
+	}
 	
-	/***************************************
+	/****************************************************************
 	 * Equals method for comparing Equation
 	 * Component objects
 	 * 
 	 *
 	 * 
 	 * 
-	 ***************************************/
+	 ****************************************************************/
 	@Override
 	public boolean equals(Object obj) {
 		
@@ -267,14 +288,14 @@ public class EquationComponent {
 	
 	
 	
-	/**********************************
+	/****************************************************************
 	 * Getters and Setters
 	 * 
 	 * 
 	 * 
 	 * 
 	 * 
-	 **********************************/
+	 ****************************************************************/
 
 	public String getVariable() {
 		return variable;
@@ -316,14 +337,14 @@ public class EquationComponent {
 		this.constantDouble = constantDouble;
 	}
 	
-	/***************************************
+	/****************************************************************
 	 * 
 	 * toString method
 	 * 
 	 * 
 	 * 
 	 * 
-	 ***************************************/
+	 ****************************************************************/
 
 	@Override
 	public String toString() {

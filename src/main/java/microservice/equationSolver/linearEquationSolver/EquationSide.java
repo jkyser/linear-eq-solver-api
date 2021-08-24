@@ -87,6 +87,30 @@ public class EquationSide {
 		this.components.add(new EquationComponent(component));
 	}
 	
+	/***********************************************************
+	 * Methods for adding and removing components from the side
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 ***********************************************************/
+	/*
+	 * Removes the given EquationComponent from the side
+	 * Returns true if successful, false if not
+	 */
+	public boolean removeFromSide(EquationComponent toRemove) {
+		return this.components.remove(toRemove);
+	}
+	
+	/*
+	 * Adds the given EquationComponent from the side
+	 */
+	public boolean addToSide(EquationComponent toAdd) {
+		toAdd.changeSign();
+		return this.components.add(toAdd);
+	}
+	
 	/******************************************************
 	 * Getters and Setters
 	 * 

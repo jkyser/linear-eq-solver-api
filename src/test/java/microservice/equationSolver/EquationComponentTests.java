@@ -24,13 +24,15 @@ import microservice.equationSolver.linearEquationSolver.EquationComponent;
 
 @SpringBootTest
 public class EquationComponentTests {
-	/*********************************************
+	/**************************************************************
 	 * 
 	 * Constructor tests
 	 * 
 	 * 
 	 * 
-	 *********************************************/
+	 * 
+	 * 
+	 **************************************************************/
 	@Test
 	@DisplayName("Test Equationcomponent constructor parses number - no variable")
 	void testEquationComponentConstructorInt() {
@@ -465,6 +467,50 @@ public class EquationComponentTests {
 		
 		EquationComponent expected = new EquationComponent("2");
 		assertTrue(compareEquationComponents(original, expected));
+	}
+	
+	/*************************************************************
+	 * Other method tests
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 *************************************************************/
+	@Test
+	@DisplayName("Test positive int is negative on sign change")
+	void testEquationComponentPosToNegIntChangeSign() {
+		EquationComponent test = new EquationComponent("3");
+		test.changeSign();
+		EquationComponent expected = new EquationComponent("-3");
+		assertTrue(compareEquationComponents(test, expected));
+	}
+	
+	@Test
+	@DisplayName("Test negative int is positive on sign change")
+	void testEquationComponentNegToPosIntChangeSign() {
+		EquationComponent test = new EquationComponent("-3");
+		test.changeSign();
+		EquationComponent expected = new EquationComponent("3");
+		assertTrue(compareEquationComponents(test, expected));
+	}
+	
+	@Test
+	@DisplayName("Test positive double is negative on sign change")
+	void testEquationComponentPosToNegDubChangeSign() {
+		EquationComponent test = new EquationComponent("3.5");
+		test.changeSign();
+		EquationComponent expected = new EquationComponent("-3.5");
+		assertTrue(compareEquationComponents(test, expected));
+	}
+	
+	@Test
+	@DisplayName("Test negative double is positive on sign change")
+	void testEquationComponentNegToPosDubChangeSign() {
+		EquationComponent test = new EquationComponent("-3.5");
+		test.changeSign();
+		EquationComponent expected = new EquationComponent("3.5");
+		assertTrue(compareEquationComponents(test, expected));
 	}
 	
 	/******************************************

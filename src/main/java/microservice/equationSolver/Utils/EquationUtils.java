@@ -1,5 +1,7 @@
 package microservice.equationSolver.Utils;
 
+import microservice.equationSolver.linearEquationSolver.EquationComponent;
+import microservice.equationSolver.linearEquationSolver.EquationSide;
 
 /***************************************************************************
  * Utility class to provide common functionality between different equation
@@ -40,6 +42,20 @@ public class EquationUtils {
 	}
 	
 	/*
-	 * 
+	 * Isolates the y variable component to the left side
 	 */
+	public static void moveYToRightSide(EquationSide left, EquationSide right) {
+		EquationComponent yComponent = null;
+		
+		for (EquationComponent comp: right.getComponents()) {
+			if (comp.getVariable().contains("y")) {
+				yComponent = comp;
+				break;
+			}
+		}
+		
+		if (yComponent != null) {
+
+		}
+	}
 }

@@ -82,6 +82,57 @@ public class EquationSideTests {
 		assertTrue(compareListOfEquationComponents(splitEq, testSplit.getComponents()));
 	}
 	
+	/**********************************************
+	 * Removing and adding components test
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 **********************************************/
+	@Test
+	@DisplayName("Test for correct removal of component")
+	void testRemoveFromSide() {
+		String equation = "x+2.0-20";
+		
+		ArrayList<EquationComponent> expected = new ArrayList<>();
+		expected.add(new EquationComponent("2.0"));
+		expected.add(new EquationComponent("-20"));
+		
+		EquationSide actual = new EquationSide();
+		actual.splitIntoComponents(equation);
+		
+		EquationComponent test = null;
+		for (EquationComponent comp: actual.getComponents()) {
+			if (comp.getVariable().contains("x")) {
+				test = comp;
+				break;
+			}
+		}
+		actual.removeFromSide(test);
+		
+		assertTrue(compareListOfEquationComponents(expected, actual.getComponents()));
+	}
+	
+	@Test
+	@DisplayName("Test for correct addition of component")
+	void testAddToSide() {
+		String equation = "x+2.0-20";
+		
+		ArrayList<EquationComponent> expected = new ArrayList<>();
+		expected.add(new EquationComponent("x"));
+		expected.add(new EquationComponent("2.0"));
+		expected.add(new EquationComponent("-20"));
+		expected.add(new EquationComponent("40"));
+		
+		EquationSide actual = new EquationSide();
+		actual.splitIntoComponents(equation);
+
+		actual.addToSide(new EquationComponent("-40"));
+		
+		assertTrue(compareListOfEquationComponents(expected, actual.getComponents()));
+	}
+	
 	/******************************************
 	 * 
 	 * Helper methods
