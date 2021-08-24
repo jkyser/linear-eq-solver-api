@@ -15,7 +15,9 @@ public class EquationSide {
 	private ArrayList<EquationComponent> components;
 	private String charsToSplitOn = "+-";
 	
-	public EquationSide() {}
+	public EquationSide() {
+		this.components = new ArrayList<>();
+	}
 	
 	/*****************************************************
 	 * Methods for splitting and processing the component
@@ -34,8 +36,17 @@ public class EquationSide {
 	public void splitIntoComponents(String eqSide) {
 		int start = 0;
 		int end = 0;
-		end = getSplitIndex(eqSide, end);
-		createNewComponent(eqSide, start, end);
+		while (true) {
+			System.out.println("This is what the end variable is: " + String.valueOf(end));
+			end = getSplitIndex(eqSide, end);
+			createNewComponent(eqSide, start, end);
+			
+			if (end == -1) {
+				break;
+			} else {
+				start = end;
+			}
+		}
 	}
 	
 	/*
@@ -50,9 +61,14 @@ public class EquationSide {
 		for (int i = splitIndex; i < eq.length(); i++) {
 			char c = eq.charAt(i);
 			
-			if (this.charsToSplitOn.indexOf(c) != -1) {
+			// only call it a split index if we encounter a symbol we are splitting
+			// on and it is also not the first symbol we are checking because we 
+			// want to include that symbol for our component
+			if (this.charsToSplitOn.indexOf(c) != -1 && i != splitIndex) {
 				splitIndex = i;
 				break;
+			} else if (i == eq.length() - 1) {
+				splitIndex = i + 1;
 			}
 		}
 		
@@ -64,7 +80,13 @@ public class EquationSide {
 	 * equation given the index to split on
 	 */
 	private void createNewComponent(String eq, int start, int end) {
+		if (end == -1) {
+			return;
+		}
 		
+		String component = eq.substring(start, end);
+		System.out.println("This is the component that is getting handed off: " + component);
+		this.components.add(new EquationComponent(component));
 	}
 	
 	/******************************************************

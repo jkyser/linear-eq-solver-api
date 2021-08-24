@@ -60,6 +60,12 @@ public class EquationComponent {
 	 * Parses a constructor input that contains a variable and a constant
 	 */
 	private void parseConstVariable(String component) {
+		if (component.length() == 1) {
+			this.variable = component;
+			checkAndSetConstant("1");
+			return;
+		}
+		
 		for (int i = 0; i < component.length(); i++) {
 			char c = component.charAt(i);
 			if (Character.isLetter(c)) {
@@ -69,8 +75,52 @@ public class EquationComponent {
 			}
 		}
 		
-		checkAndSetConstant(component);
+		if (component.length() == 1 && component.contains("-")) {
+			checkAndSetConstant("-1");
+		} else {
+			checkAndSetConstant(component);
+		}
 	}
+	
+	/***************************************
+	 * Equals method for comparing Equation
+	 * Component objects
+	 * 
+	 *
+	 * 
+	 * 
+	 ***************************************/
+	@Override
+	public boolean equals(Object obj) {
+		
+		if (!(obj instanceof EquationComponent)) {
+			return false;
+		}
+		
+		EquationComponent comp = (EquationComponent) obj;
+		
+		if (this.isDouble != comp.isDouble()) {
+			return false;
+		}
+		
+		if (this.isInt != comp.isInt()) {
+			return false;
+		}
+		
+		if (comp.isDouble()) {
+			if (comp.getConstantDouble() != this.constantDouble) {
+				return false;
+			}
+		} else {
+			if (comp.getConstantInt() != this.constantInt) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	
 	
 	/**********************************
 	 * Getters and Setters
@@ -119,6 +169,21 @@ public class EquationComponent {
 
 	public void setConstantDouble(double constantDouble) {
 		this.constantDouble = constantDouble;
+	}
+	
+	/***************************************
+	 * 
+	 * toString method
+	 * 
+	 * 
+	 * 
+	 * 
+	 ***************************************/
+
+	@Override
+	public String toString() {
+		return "EquationComponent [variable=" + variable + ", isInt=" + isInt + ", constantInt=" + constantInt
+				+ ", isDouble=" + isDouble + ", constantDouble=" + constantDouble + "]";
 	}
 	
 }

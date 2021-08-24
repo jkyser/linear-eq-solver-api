@@ -103,4 +103,52 @@ public class EquationComponentTests {
 		EquationComponent testComponent = new EquationComponent(component);
 		assertEquals(-4.2, testComponent.getConstantDouble());
 	}
+	
+	@Test
+	@DisplayName("Test EquationComponent constructor parses constant with no variable constant")
+	void testEquationComponentConstructorConstantWithNoConstant() {
+		String component = "y";
+		EquationComponent testComponent = new EquationComponent(component);
+		assertEquals(1, testComponent.getConstantInt());
+	}
+	
+	@Test
+	@DisplayName("Test EquationComponent constructor parses variable with no constant")
+	void testEquationComponentConstructorVariableWithNoConstant() {
+		String component = "y";
+		EquationComponent testComponent = new EquationComponent(component);
+		assertEquals("y", testComponent.getVariable());
+	}
+	
+	@Test
+	@DisplayName("Test EquationComponent constructor parses constant with no variable constant negative")
+	void testEquationComponentConstructorConstantWithNoConstantNegative() {
+		String component = "-y";
+		EquationComponent testComponent = new EquationComponent(component);
+		assertEquals(-1, testComponent.getConstantInt());
+	}
+	
+	@Test
+	@DisplayName("Test EquationComponent constructor parses variable with no constant negative")
+	void testEquationComponentConstructorVariableWithNoConstantNegative() {
+		String component = "-y";
+		EquationComponent testComponent = new EquationComponent(component);
+		assertEquals("y", testComponent.getVariable());
+	}
+	
+	@Test
+	@DisplayName("Test EquationComponent constructor parses constant with a + symbol in it")
+	void testEquationComponentConstructorConstantPlusSymbol() {
+		String component = "+20";
+		EquationComponent testComponent = new EquationComponent(component);
+		assertEquals(20, testComponent.getConstantInt());
+	}
+	
+	@Test
+	@DisplayName("Test EquationComponent constructor parses double constant with a + symbol in it")
+	void testEquationComponentConstructorDoubleConstantPlusSymbol() {
+		String component = "+20.2";
+		EquationComponent testComponent = new EquationComponent(component);
+		assertEquals(20.2, testComponent.getConstantDouble());
+	}
 }

@@ -1,6 +1,6 @@
 package microservice.equationSolver;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
@@ -33,8 +33,9 @@ public class EquationSideTests {
 		splitEq.add(new EquationComponent("5"));
 		splitEq.add(new EquationComponent("-6"));
 		
-		EquationSide testSplit = new EquationSide(equation);
-		assertEquals(splitEq, testSplit.getComponents());
+		EquationSide testSplit = new EquationSide();
+		testSplit.splitIntoComponents(equation);
+		assertTrue(compareListOfEquationComponents(splitEq, testSplit.getComponents()));
 	}
 	
 	@Test
@@ -47,8 +48,9 @@ public class EquationSideTests {
 		splitEq.add(new EquationComponent("5"));
 		splitEq.add(new EquationComponent("-6"));
 		
-		EquationSide testSplit = new EquationSide(equation);
-		assertEquals(splitEq, testSplit.getComponents());
+		EquationSide testSplit = new EquationSide();
+		testSplit.splitIntoComponents(equation);
+		assertTrue(compareListOfEquationComponents(splitEq, testSplit.getComponents()));
 	}
 	
 	@Test
@@ -61,8 +63,9 @@ public class EquationSideTests {
 		splitEq.add(new EquationComponent("2.0"));
 		splitEq.add(new EquationComponent("-20"));
 		
-		EquationSide testSplit = new EquationSide(equation);
-		assertEquals(splitEq, testSplit.getComponents());
+		EquationSide testSplit = new EquationSide();
+		testSplit.splitIntoComponents(equation);
+		assertTrue(compareListOfEquationComponents(splitEq, testSplit.getComponents()));
 	}
 	
 	@Test
@@ -74,7 +77,40 @@ public class EquationSideTests {
 		splitEq.add(new EquationComponent("x"));
 		splitEq.add(new EquationComponent("-y"));
 		
-		EquationSide testSplit = new EquationSide(equation);
-		assertEquals(splitEq, testSplit.getComponents());
+		EquationSide testSplit = new EquationSide();
+		testSplit.splitIntoComponents(equation);
+		assertTrue(compareListOfEquationComponents(splitEq, testSplit.getComponents()));
 	}
+	
+	/******************************************
+	 * 
+	 * Helper methods
+	 * 
+	 * 
+	 * 
+	 * 
+	 ******************************************/
+	
+	/*
+	 * Compares the EquationComponent instances in two ArrayLists
+	 * and returns true if they are all equal and false otherwise
+	 */
+	private boolean compareListOfEquationComponents(
+					ArrayList<EquationComponent> listOne,
+					ArrayList<EquationComponent> listTwo) {
+		for (int i = 0; i < listOne.size(); i++) {
+			EquationComponent one = listOne.get(i);
+			EquationComponent two = listTwo.get(i);
+			
+			// print the equation components
+			System.out.println("ArrayList one: " + one);
+			System.out.println("ArrayList two: " + two);
+			
+			if (!(one.equals(two))) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 }
