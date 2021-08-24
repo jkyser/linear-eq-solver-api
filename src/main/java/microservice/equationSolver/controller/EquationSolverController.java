@@ -20,7 +20,7 @@ import microservice.equationSolver.linearEquationSolver.EquationHolder;
 @CrossOrigin
 @Controller
 @RequestMapping("/solve")
-public class EquationSolverHandler {
+public class EquationSolverController {
 	
 	/*
 	 * Solves linear equation

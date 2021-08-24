@@ -34,7 +34,7 @@ public class EquationHolder {
 	 * Solves a given linear equation by first splitting into components
 	 * then processing the various steps to solve a linear equation
 	 */
-	public void solveLinearEquation() {
+	public void solveYMXBform() {
 		String[] splitEq = EquationUtils.splitEquation(this.equation);
 	}
 	

@@ -37,7 +37,6 @@ public class EquationSide {
 		int start = 0;
 		int end = 0;
 		while (true) {
-			System.out.println("This is what the end variable is: " + String.valueOf(end));
 			end = getSplitIndex(eqSide, end);
 			createNewComponent(eqSide, start, end);
 			
@@ -85,7 +84,6 @@ public class EquationSide {
 		}
 		
 		String component = eq.substring(start, end);
-		System.out.println("This is the component that is getting handed off: " + component);
 		this.components.add(new EquationComponent(component));
 	}
 	

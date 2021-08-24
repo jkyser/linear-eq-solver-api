@@ -102,10 +102,6 @@ public class EquationSideTests {
 			EquationComponent one = listOne.get(i);
 			EquationComponent two = listTwo.get(i);
 			
-			// print the equation components
-			System.out.println("ArrayList one: " + one);
-			System.out.println("ArrayList two: " + two);
-			
 			if (!(one.equals(two))) {
 				return false;
 			}
