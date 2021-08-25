@@ -8,10 +8,15 @@ public class EquationHolder {
 	 * Member variables
 	 */
 	private String equation;
+	private String slope;
+	private String yIntercept;
 	private EquationSide leftSide;
 	private EquationSide rightSide;
 	
-	public EquationHolder() {}
+	public EquationHolder() {
+		leftSide = new EquationSide();
+		rightSide = new EquationSide();
+	}
 
 	/******************************************
 	 * Methods for solving linear equations
@@ -27,9 +32,84 @@ public class EquationHolder {
 	 * then processing the various steps to solve a linear equation
 	 */
 	public void solveYMXBform() {
+		// split equation into components
 		String[] splitEq = EquationUtils.splitEquation(this.equation);
-		leftSide.splitIntoComponents(splitEq[0]);
-		rightSide.splitIntoComponents(splitEq[1]);
+		this.leftSide.splitIntoComponents(splitEq[0]);
+		this.rightSide.splitIntoComponents(splitEq[1]);
+		
+		// use the utils to solve the equation
+		EquationUtils.moveYToLeftSide(this.leftSide, this.rightSide);
+		EquationUtils.moveXToRightSide(this.leftSide, this.rightSide);
+		EquationUtils.isolateYOnLeftSide(this.leftSide, this.rightSide);
+		EquationUtils.reduceRightSideConstants(this.rightSide);
+		EquationUtils.divideByYCoefficient(this.leftSide, this.rightSide);
+		
+		// set the equation to the proper y=mx+b form
+		setEquationToYMXB();
+	}
+	
+	/*
+	 * Sets the equation to the proper y=mx+b form
+	 */
+	private void setEquationToYMXB() {
+		String eq = "y=";
+		
+		// get the left side of the equation first
+		eq += parseRightSideEquation();
+		this.equation = eq;
+	}
+	
+	/*
+	 * Returns the left side of the equation for a linear equation including
+	 * the '=' symbol
+	 */
+	private String parseRightSideEquation() {
+		String xCompString = "";
+		String yIntString = "";
+		
+		// iterate through the right side and parse/condense
+		// to a string
+		for (EquationComponent comp: this.rightSide.getComponents()) {
+			if (comp.getVariable() != null) {
+				// this is the x component
+				if (comp.isInt()) {
+					xCompString += "" + comp.getConstantInt() + "x";
+				} else {
+					xCompString += "" + comp.getConstantDouble() + "x";
+				}
+			} else {
+				// this is the y intercept
+				if (comp.isInt()) {
+					yIntString += "" + comp.getConstantInt();
+				} else {
+					yIntString += "" + comp.getConstantDouble();
+				}
+			}
+		}
+		
+		setSlope(xCompString);
+		setYIntercept(yIntString);
+		
+		// return the correctly formatted string
+		if (yIntString.charAt(0) == '-') {
+			return xCompString + yIntString;
+		} else {
+			return xCompString + "+" + yIntString;
+		}
+	}
+	
+	/*
+	 * Sets the equation slope
+	 */
+	private void setSlope(String slope) {
+		
+	}
+	
+	/*
+	 * Sets the equation y-intercept
+	 */
+	private void setYIntercept(String yInt) {
+		
 	}
 	
 	/******************************************

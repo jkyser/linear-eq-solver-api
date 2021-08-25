@@ -20,8 +20,8 @@ public class EquationHolderTests {
 	}
 	
 	@Test
-	@DisplayName("Test to see if EquationHolder splits equation into correct components")
-	void testEquationHolderSidesHaveCorrectComponents() {
+	@DisplayName("Test solvYMXBform() basic functionality")
+	void testSolveYMXBform() {
 		String equation = "4x+6=-5y+20";
 		String solvedEquation = "y=-0.8x+2.8";
 		
@@ -30,4 +30,7 @@ public class EquationHolderTests {
 		
 		assertEquals(solvedEquation, holder.getEquation());
 	}
+	
+	@Test
+	@DisplayName("Test slope is set correctly")
 }
