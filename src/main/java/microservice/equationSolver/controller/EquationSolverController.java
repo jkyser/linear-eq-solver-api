@@ -1,4 +1,4 @@
-package equationSolver.equationSolver.linearEquationSolver;
+package microservice.equationSolver.controller;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -8,17 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-/*
+import microservice.equationSolver.linearEquationSolver.EquationHolder;
+
+/*******************************************************
+ * 
+ * Top level controller for all equations that will
+ * be solved
  * 
  * 
- * 
- * 
- * 
- */
+ *******************************************************/
 @CrossOrigin
 @Controller
 @RequestMapping("/solve")
-public class LinearEquationSolverHandler {
+public class EquationSolverController {
 	
 	/*
 	 * Solves linear equation
@@ -28,17 +30,9 @@ public class LinearEquationSolverHandler {
 			consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public EquationHolder solveLinearEquation(@RequestBody EquationHolder equation) {
-		System.out.println("First print in handler: " + equation);
 		
-		LinearEquationSolver solver = 
-				new LinearEquationSolver(equation.getEquation());
-		solver.solve();
-		
-		System.out.println("Second print in handler: " + solver.getEquation());
-		System.out.println("y-intercept: " + solver.getyIntercept());
-		System.out.println("slope: " + solver.getSlope());
-		
-		return solver.getEquation();
+		equation.solveYMXBform();
+		return equation;
 	}
 	
 }
