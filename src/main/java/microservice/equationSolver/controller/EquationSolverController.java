@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import microservice.equationSolver.linearEquationSolver.EquationHolder;
 
-/*
+/*******************************************************
+ * 
+ * Top level controller for all equations that will
+ * be solved
  * 
  * 
- * 
- * 
- * 
- */
+ *******************************************************/
 @CrossOrigin
 @Controller
 @RequestMapping("/solve")
