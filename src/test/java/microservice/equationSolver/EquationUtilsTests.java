@@ -177,6 +177,47 @@ class EquationUtilsTests {
 											rightSideExpected.getComponents()));
 	}
 	
+	/***************************************
+	 * EquationUtils.isolateYOnLeftSide() tests
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 ***************************************/
+	@Test
+	@DisplayName("Test isolateYOnLeftSide for basic functionality")
+	void testIsolateYOnLeftSide() {
+		String left = "x+42";
+		String right = "-4y+1-5+46+20";
+		String leftExpected = "4y";
+		String rightExpected = "1-5+46+20-x-42";
+		
+		EquationSide leftSideActual = new EquationSide();
+		leftSideActual.splitIntoComponents(left);
+		EquationSide rightSideActual = new EquationSide();
+		rightSideActual.splitIntoComponents(right);
+		
+		EquationSide leftSideExpected = new EquationSide();
+		leftSideExpected.splitIntoComponents(leftExpected);
+		EquationSide rightSideExpected = new EquationSide();
+		rightSideExpected.splitIntoComponents(rightExpected);
+		
+		EquationUtils.moveYToLeftSide(leftSideActual, rightSideActual);
+		EquationUtils.moveXToRightSide(leftSideActual, rightSideActual);
+		EquationUtils.isolateYOnLeftSide(leftSideActual, rightSideActual);
+		
+		assertTrue(
+			compareListOfEquationComponents(leftSideActual.getComponents(), 
+											leftSideExpected.getComponents()) && 
+			compareListOfEquationComponents(rightSideActual.getComponents(),
+											rightSideExpected.getComponents()));
+	}
+	
 	/******************************************
 	 * 
 	 * Helper methods

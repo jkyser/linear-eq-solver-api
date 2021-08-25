@@ -82,4 +82,11 @@ public class EquationUtils {
 			right.addToSide(xComponent);
 		}
 	}
+	
+	/*
+	 * Clears the entire left side except for the y component
+	 */
+	public static void isolateYOnLeftSide(EquationSide left, EquationSide right ) {
+		
+	}
 }
