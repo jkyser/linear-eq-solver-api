@@ -107,7 +107,28 @@ public class EquationUtils {
 	 * Reduces down the constants on the right side
 	 */
 	public static void reduceRightSideConstants(EquationSide right) {
+		// get all of the constants
+		ArrayList<EquationComponent> compsToReduce = new ArrayList<>();
 		
+		for (EquationComponent comp: right.getComponents()) {
+			if (comp.getVariable() == null) {
+				compsToReduce.add(comp);
+			}
+		}
+		
+		// remove each component from the right side and add them all together
+		// into one equation component
+		EquationComponent reducedConstant = new EquationComponent("0");
+		
+		for (EquationComponent comp: compsToReduce) {
+			right.removeFromSide(comp);
+			reducedConstant.add(comp);
+		}
+		
+		// add the reduced constant back to the right side
+		// necessary to change sign because of addToSide() implementation
+		reducedConstant.changeSign();
+		right.addToSide(reducedConstant);
 	}
 	
 	/*

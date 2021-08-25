@@ -253,6 +253,11 @@ class EquationUtilsTests {
 		EquationUtils.isolateYOnLeftSide(leftSideActual, rightSideActual);
 		EquationUtils.reduceRightSideConstants(rightSideActual);
 		
+		System.out.println(leftSideActual);
+		System.out.println(leftSideExpected);
+		System.out.println(rightSideActual);
+		System.out.println(rightSideExpected);
+		
 		assertTrue(
 			compareListOfEquationComponents(leftSideActual.getComponents(), 
 											leftSideExpected.getComponents()) && 

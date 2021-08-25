@@ -127,5 +127,10 @@ public class EquationSide {
 	public void setComponents(ArrayList<EquationComponent> components) {
 		this.components = components;
 	}
+
+	@Override
+	public String toString() {
+		return "EquationSide [components=" + components + ", charsToSplitOn=" + charsToSplitOn + "]";
+	}
 	
 }
