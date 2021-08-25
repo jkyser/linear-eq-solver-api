@@ -104,8 +104,11 @@ public class EquationUtils {
 	}
 	
 	/*
-	 * Reduces down 
+	 * Reduces down the constants on the right side
 	 */
+	public static void reduceRightSideConstants(EquationSide right) {
+		
+	}
 	
 	/*
 	 * Divides the y component by its coefficient on the left and right side
