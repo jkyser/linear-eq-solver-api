@@ -1,5 +1,7 @@
 package microservice.equationSolver.Utils;
 
+import java.util.ArrayList;
+
 import microservice.equationSolver.linearEquationSolver.EquationComponent;
 import microservice.equationSolver.linearEquationSolver.EquationSide;
 
@@ -87,6 +89,25 @@ public class EquationUtils {
 	 * Clears the entire left side except for the y component
 	 */
 	public static void isolateYOnLeftSide(EquationSide left, EquationSide right ) {
+		ArrayList<EquationComponent> compsToMove = new ArrayList<>();
 		
+		for (EquationComponent comp: left.getComponents()) {
+			if (comp.getVariable() == null) {
+				compsToMove.add(comp);
+			}
+		}
+		
+		for (EquationComponent comp: compsToMove) {
+			left.removeFromSide(comp);
+			right.addToSide(comp);
+		}
 	}
+	
+	/*
+	 * Reduces down 
+	 */
+	
+	/*
+	 * Divides the y component by its coefficient on the left and right side
+	 */
 }
