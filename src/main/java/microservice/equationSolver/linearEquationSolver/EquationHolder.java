@@ -88,7 +88,7 @@ public class EquationHolder {
 		}
 		
 		setSlope(xCompString);
-		setYIntercept(yIntString);
+		setyIntercept(yIntString);
 		
 		// return the correctly formatted string
 		if (yIntString.charAt(0) == '-') {
@@ -96,20 +96,6 @@ public class EquationHolder {
 		} else {
 			return xCompString + "+" + yIntString;
 		}
-	}
-	
-	/*
-	 * Sets the equation slope
-	 */
-	private void setSlope(String slope) {
-		
-	}
-	
-	/*
-	 * Sets the equation y-intercept
-	 */
-	private void setYIntercept(String yInt) {
-		
 	}
 	
 	/******************************************
@@ -127,5 +113,31 @@ public class EquationHolder {
 	public void setEquation(String equation) {
 		this.equation = equation;
 	}
+
+	public String getyIntercept() {
+		return yIntercept;
+	}
+
+	private void setyIntercept(String yIntercept) {
+		this.yIntercept = yIntercept;
+	}
+
+	public String getSlope() {
+		return slope;
+	}
 	
+	private void setSlope(String slope) {
+		int slopeIndex = 0;
+		
+		for (int i = 0; i < slope.length(); i++) {
+			char c = slope.charAt(i);
+			
+			if (Character.isLetter(c)) {
+				slopeIndex = i;
+				break;
+			}
+		}
+		
+		this.slope = slope.substring(0, slopeIndex);
+	}
 }

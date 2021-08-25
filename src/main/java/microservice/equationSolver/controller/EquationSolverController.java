@@ -31,9 +31,8 @@ public class EquationSolverController {
 	@ResponseBody
 	public EquationHolder solveLinearEquation(@RequestBody EquationHolder equation) {
 		
-		System.out.println(equation.getEquation());
-		
-		return new EquationHolder();
+		equation.solveYMXBform();
+		return equation;
 	}
 	
 }

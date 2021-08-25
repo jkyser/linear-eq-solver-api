@@ -33,4 +33,26 @@ public class EquationHolderTests {
 	
 	@Test
 	@DisplayName("Test slope is set correctly")
+	void testSetSlopeCorrectly() {
+		String equation = "4x+6=-5y+20";
+		String slope = "-0.8";
+		
+		holder.setEquation(equation);
+		holder.solveYMXBform();
+		
+		assertEquals(slope, holder.getSlope());
+	}
+	
+	@Test
+	@DisplayName("Test y-intercept is set correctly")
+	void testSetYInterceptCorrectly() {
+		String equation = "4x+6=-5y+20";
+		String yIntercept = "2.8";
+		
+		holder.setEquation(equation);
+		holder.solveYMXBform();
+		
+		assertEquals(yIntercept, holder.getyIntercept());
+	}
+	
 }
