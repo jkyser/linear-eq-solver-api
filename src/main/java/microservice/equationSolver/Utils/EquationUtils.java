@@ -44,18 +44,42 @@ public class EquationUtils {
 	/*
 	 * Isolates the y variable component to the left side
 	 */
-	public static void moveYToRightSide(EquationSide left, EquationSide right) {
+	public static void moveYToLeftSide(EquationSide left, EquationSide right) {
 		EquationComponent yComponent = null;
 		
 		for (EquationComponent comp: right.getComponents()) {
-			if (comp.getVariable().contains("y")) {
-				yComponent = comp;
-				break;
+			if (comp.getVariable() != null) {	
+				if (comp.getVariable().contains("y")) {
+					yComponent = comp;
+					break;
+				}
 			}
 		}
 		
 		if (yComponent != null) {
-
+			right.removeFromSide(yComponent);
+			left.addToSide(yComponent);
+		}
+	}
+	
+	/*
+	 * Isolates the x variable component to the right side
+	 */
+	public static void moveXToRightSide(EquationSide left, EquationSide right) {
+		EquationComponent xComponent = null;
+		
+		for (EquationComponent comp: left.getComponents()) {
+			if (comp.getVariable() != null) {
+				if (comp.getVariable().contains("x")) {
+					xComponent = comp;
+					break;
+				}
+			}
+		}
+		
+		if (xComponent != null) {
+			left.removeFromSide(xComponent);
+			right.addToSide(xComponent);
 		}
 	}
 }

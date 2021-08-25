@@ -11,17 +11,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 import microservice.equationSolver.linearEquationSolver.EquationComponent;
 import microservice.equationSolver.linearEquationSolver.EquationSide;
 
-/********************************************
- * EquationSide.splitIntoComponents() Tests
- * 
- * 
- * 
- * 
- * 
- ********************************************/
 
 @SpringBootTest
 public class EquationSideTests {
+	
+	/********************************************
+	 * EquationSide.splitIntoComponents() Tests
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 ********************************************/
 	
 	@Test
 	@DisplayName("Test for correct splitting of components with only constants")
