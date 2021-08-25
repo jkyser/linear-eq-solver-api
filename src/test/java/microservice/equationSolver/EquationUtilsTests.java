@@ -253,16 +253,59 @@ class EquationUtilsTests {
 		EquationUtils.isolateYOnLeftSide(leftSideActual, rightSideActual);
 		EquationUtils.reduceRightSideConstants(rightSideActual);
 		
-		System.out.println(leftSideActual);
-		System.out.println(leftSideExpected);
-		System.out.println(rightSideActual);
-		System.out.println(rightSideExpected);
-		
 		assertTrue(
 			compareListOfEquationComponents(leftSideActual.getComponents(), 
 											leftSideExpected.getComponents()) && 
 			compareListOfEquationComponents(rightSideActual.getComponents(),
 											rightSideExpected.getComponents()));
+	}
+	
+	/*************************************************
+	 * EquationUtils.divideByYConstant() tests
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 *************************************************/
+	@Test
+	@DisplayName("Test basic functionality of divideByYConstant()")
+	void testDivideByYConstant() {
+		String left = "x+42";
+		String right = "-4y+1-5+46+20";
+		String leftExpected = "y";
+		String rightExpected = "-0.25x+5";
+		
+		EquationSide leftSideActual = new EquationSide();
+		leftSideActual.splitIntoComponents(left);
+		EquationSide rightSideActual = new EquationSide();
+		rightSideActual.splitIntoComponents(right);
+		
+		EquationSide leftSideExpected = new EquationSide();
+		leftSideExpected.splitIntoComponents(leftExpected);
+		EquationSide rightSideExpected = new EquationSide();
+		rightSideExpected.splitIntoComponents(rightExpected);
+		
+		EquationUtils.moveYToLeftSide(leftSideActual, rightSideActual);
+		EquationUtils.moveXToRightSide(leftSideActual, rightSideActual);
+		EquationUtils.isolateYOnLeftSide(leftSideActual, rightSideActual);
+		EquationUtils.reduceRightSideConstants(rightSideActual);
+		EquationUtils.divideByYConstant(leftSideActual, rightSideActual);
+		
+		System.out.println("leftSideActual: " + leftSideActual);
+		System.out.println("leftSideExpected: " + leftSideExpected);
+		System.out.println("rightSideActual: " + rightSideActual);
+		System.out.println("rightSideExpected: " + rightSideExpected);
+		
+		assertTrue(
+				compareListOfEquationComponents(leftSideActual.getComponents(), 
+												leftSideExpected.getComponents()) && 
+				compareListOfEquationComponents(rightSideActual.getComponents(),
+												rightSideExpected.getComponents()));
 	}
 	
 	/******************************************

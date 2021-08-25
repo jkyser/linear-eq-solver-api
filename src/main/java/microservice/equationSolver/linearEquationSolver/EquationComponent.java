@@ -217,7 +217,7 @@ public class EquationComponent {
 				} else {
 					this.isInt = false;
 					this.isDouble = true;
-					this.constantDouble = this.constantInt / dividend.getConstantInt();
+					this.constantDouble = (double) this.constantInt / dividend.getConstantInt();
 				}
 			}
 		} else {

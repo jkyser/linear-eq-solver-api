@@ -83,6 +83,19 @@ public class EquationSideTests {
 		assertTrue(compareListOfEquationComponents(splitEq, testSplit.getComponents()));
 	}
 	
+	@Test
+	@DisplayName("Test for correct splitting with single variable")
+	void testSplitIntoComponentsSingleVar() {
+		String equation = "y";
+		
+		ArrayList<EquationComponent> splitEq = new ArrayList<>();
+		splitEq.add(new EquationComponent("y"));
+		
+		EquationSide testSplit = new EquationSide();
+		testSplit.splitIntoComponents(equation);
+		assertTrue(compareListOfEquationComponents(splitEq, testSplit.getComponents()));
+	}
+	
 	/**********************************************
 	 * Removing and adding components test
 	 * 

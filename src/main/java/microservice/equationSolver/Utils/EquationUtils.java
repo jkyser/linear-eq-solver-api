@@ -27,17 +27,19 @@ public class EquationUtils {
 		for (int i = 0; i < equation.length(); i++) {
 			char c = equation.charAt(i);
 			
+			// break when = sign found
 			if (c == '=') {
 				equalIndex = i;
 				break;
 			}
 		}
 		
-		// check for incorrect formatting here
+		// check for incorrect equal sign location here
 		if (equalIndex == 0 || equalIndex == equation.length() - 1) {
 			return null;
 		}
 		
+		// return array of strings representing equation broken on = sign
 		eqArray[0] = equation.substring(0, equalIndex);
 		eqArray[1] = equation.substring(equalIndex + 1);
 		return eqArray;
@@ -49,6 +51,8 @@ public class EquationUtils {
 	public static void moveYToLeftSide(EquationSide left, EquationSide right) {
 		EquationComponent yComponent = null;
 		
+		// iterate through right side and grab the component whose
+		// variable is y
 		for (EquationComponent comp: right.getComponents()) {
 			if (comp.getVariable() != null) {	
 				if (comp.getVariable().contains("y")) {
@@ -70,6 +74,8 @@ public class EquationUtils {
 	public static void moveXToRightSide(EquationSide left, EquationSide right) {
 		EquationComponent xComponent = null;
 		
+		// iterate through left side and grab the component whose
+		// variable is x
 		for (EquationComponent comp: left.getComponents()) {
 			if (comp.getVariable() != null) {
 				if (comp.getVariable().contains("x")) {
@@ -91,12 +97,15 @@ public class EquationUtils {
 	public static void isolateYOnLeftSide(EquationSide left, EquationSide right ) {
 		ArrayList<EquationComponent> compsToMove = new ArrayList<>();
 		
+		// add all components to compsToMove whose variable is null
+		// indicating there is no associated variable
 		for (EquationComponent comp: left.getComponents()) {
 			if (comp.getVariable() == null) {
 				compsToMove.add(comp);
 			}
 		}
 		
+		// shift everything to the right side that is not the y variable component
 		for (EquationComponent comp: compsToMove) {
 			left.removeFromSide(comp);
 			right.addToSide(comp);
@@ -134,4 +143,45 @@ public class EquationUtils {
 	/*
 	 * Divides the y component by its coefficient on the left and right side
 	 */
+	public static void divideByYConstant(EquationSide left, EquationSide right) {
+		// get the constant to divide by
+		Integer intConst = null;
+		Double doubleConst = null;
+		
+		// there should only be one component on the left side containing
+		// the y variable, but the loop is to ensure I get the right
+		// constant in case something upstream happened, that way
+		// no data is lost at this point
+		for (EquationComponent comp: left.getComponents()) {
+			if (comp.getVariable() != null) {
+				if (comp.getVariable().contains("y")) {
+					// check for int or double constant
+					if (comp.isInt()) {
+						intConst = comp.getConstantInt();
+					} else {
+						doubleConst = comp.getConstantDouble();
+					}
+				}
+			}
+		}
+		
+		// create a new component for the dividend
+		String div;
+		if (intConst != null) {
+			div = String.valueOf(intConst);
+		} else {
+			div = String.valueOf(doubleConst);
+		}
+		EquationComponent dividend = new EquationComponent(div);
+		
+		// divide all components on left and right sides by the constant
+		for (EquationComponent comp: left.getComponents()) {
+			comp.divide(dividend);
+		}
+		
+		for (EquationComponent comp: right.getComponents()) {
+			comp.divide(dividend);
+		}
+	}
+	
 }

@@ -41,6 +41,9 @@ public class EquationSide {
 			createNewComponent(eqSide, start, end);
 			
 			if (end == -1) {
+				if (start == 0) {
+					createNewComponent(eqSide, start, 1);
+				}
 				break;
 			} else {
 				start = end;
