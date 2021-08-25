@@ -1,4 +1,4 @@
-package equationSolver.equationSolver;
+package microservice.equationSolver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
