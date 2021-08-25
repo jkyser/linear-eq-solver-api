@@ -24,6 +24,7 @@ public class EquationHolderTests {
 	void testEquationHolderSidesHaveCorrectComponents() {
 		String equation = "4x+6=-5y+20";
 		String solvedEquation = "y=-0.8x+2.8";
+		
 		holder.setEquation(equation);
 		holder.solveYMXBform();
 		

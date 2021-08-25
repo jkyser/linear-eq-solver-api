@@ -294,12 +294,7 @@ class EquationUtilsTests {
 		EquationUtils.moveXToRightSide(leftSideActual, rightSideActual);
 		EquationUtils.isolateYOnLeftSide(leftSideActual, rightSideActual);
 		EquationUtils.reduceRightSideConstants(rightSideActual);
-		EquationUtils.divideByYConstant(leftSideActual, rightSideActual);
-		
-		System.out.println("leftSideActual: " + leftSideActual);
-		System.out.println("leftSideExpected: " + leftSideExpected);
-		System.out.println("rightSideActual: " + rightSideActual);
-		System.out.println("rightSideExpected: " + rightSideExpected);
+		EquationUtils.divideByYCoefficient(leftSideActual, rightSideActual);
 		
 		assertTrue(
 				compareListOfEquationComponents(leftSideActual.getComponents(), 

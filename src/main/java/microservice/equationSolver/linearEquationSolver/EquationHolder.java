@@ -1,22 +1,14 @@
 package microservice.equationSolver.linearEquationSolver;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.web.context.annotation.RequestScope;
-
 import microservice.equationSolver.Utils.EquationUtils;
 
-@Component
-@RequestScope
 public class EquationHolder {
 	
 	/*
 	 * Member variables
 	 */
 	private String equation;
-	@Autowired
 	private EquationSide leftSide;
-	@Autowired
 	private EquationSide rightSide;
 	
 	public EquationHolder() {}

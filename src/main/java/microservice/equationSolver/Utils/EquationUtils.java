@@ -143,7 +143,7 @@ public class EquationUtils {
 	/*
 	 * Divides the y component by its coefficient on the left and right side
 	 */
-	public static void divideByYConstant(EquationSide left, EquationSide right) {
+	public static void divideByYCoefficient(EquationSide left, EquationSide right) {
 		// get the constant to divide by
 		Integer intConst = null;
 		Double doubleConst = null;
