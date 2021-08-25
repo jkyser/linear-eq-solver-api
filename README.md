@@ -38,18 +38,18 @@ where y=mx+b is the equation to be solved.
 
 ### Image of homescreen for equation solving
 
-![image](https://github.com/jkyser/linear-eq-solver-microservice/src/main/resources/homepage.png?raw=true)
+![image](https://github.com/jkyser/linear-eq-solver-microservice/blob/main/src/main/resources/static/homepage.jpg?raw=true)
 
 ### Image of the solved equation
 
-![image](https://github.com/jkyser/linear-eq-solver-microservice/src/main/resources/solvedEquation.png?raw=true)
+![image](https://github.com/jkyser/linear-eq-solver-microservice/blob/main/src/main/resources/static/solvedEquation.jpg?raw=true)
 
 You can notice that the graphing microservice is utilized after hitting submit also (through a second HTTP POST request
 to that microservice).
 
 ### Image of response body
 
-![image](https://github.com/jkyser/linear-eq-solver-microservice/src/main/resources/response.png?raw=true)
+![image](https://github.com/jkyser/linear-eq-solver-microservice/blob/main/src/main/resources/static/response.jpg?raw=true)
 
 # Future of microservice
 
