@@ -23,7 +23,7 @@ but utilizing the TDD approach made my code more modular, robust, and easier to 
 
 # Usage
 
-The front-end of the poject is hosted through GitHub at: [Math-Grapher](https://jkyser.github.io/mathgrapher-frontend/)
+The front-end of the poject is hosted through Netlify at: [Pizza Math](https://pizza-math.netlify.app/)
 
 The front-end also uses a graphing microservice created using JFreeChart. The repo for that microservice can be found
 at: [Graphing-Microservice](https://github.com/jkyser/graphing-microservice)
